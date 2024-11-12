@@ -1,30 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <meta charset="utf-8" />
+      <meta charset="utf-8" />
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
-
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
+    <link rel="stylesheet" href="reset.css"/>
   </head>
 
   <body>
     
-  <h1>Your Project Title Here</h1>
-  <h2>Byline</h2>
-  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias repudiandae tempora fuga 
-      sapiente sit quidem iste vel eaque, nihil cum! Accusantium doloremque accusamus fugiat deleniti 
-      inventore dicta ab temporibus neque.</p>
-  <div class="graphic">
-   <iframe title="Datawrapper visual" aria-label="Stacked Bars" 
-    id="datawrapper-chart-j6JfA" src="https://datawrapper.dwcdn.net/j6JfA/1/" 
-    scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" 
-    height="339">
-    </iframe>
-    <script type="text/ javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();
-    </script>
-  </div>
+  <h1>Food Scrap Drop-Off Locations</h1>
+  <p>This website provides an interactive map and data visualizations to help New Yorkers easily find food scrap drop-off locations and make informed choices about sustainable waste disposal. Users can explore operating hours, understand the role of various site hosts, and compare resources across boroughs. Seasonal trends and accessibility insights are also highlighted, making it simple to engage with food scrap collection efforts year-round.</p>
+  <div id="locationInfo" style="padding: 10px; width: 98.5%; text-align: center;background-color: #000000; margin-top: 20px; border: 1px solid #ccc;">
+    <h3>Click on a locations to see details here</h3>
+</div>
+
+<div id="mapContainer">
+  <div id="map" style="width: 80%; height: 620px;"></div>
+</div>
+ 
 
   
 
@@ -33,10 +30,7 @@
       excepturi aut.</p>
 
   <div id="map-padding" class="graphic">
-    <iframe title="Test Map" aria-label="Map" 
-    id="datawrapper-chart-2Earw" src="https://datawrapper.dwcdn.net/2Earw/1/" 
-    scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" 
-    height="400"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();
+    <iframe title="Frequency of Operating Hours for Food Scrap Drop-Off Location in NYC" aria-label="Column Chart" id="datawrapper-chart-nQjSO" src="https://datawrapper.dwcdn.net/nQjSO/3/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none; color: white !important;" height="441" data-external="1"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r=0;r<e.length;r++)if(e[r].contentWindow===a.source){var i=a.data["datawrapper-height"][t]+"px";e[r].style.height=i}}}))}();
     </script>
   </div>
 
@@ -56,4 +50,9 @@
 Data Courtesy of<a target="_blank" href="http://wildfire.cr.usgs.gov/firehistory/data.html">add all links to your data sources in the footer</a><br/>
       <!-- Attribute you data here -->
   </footer>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+  <script src="script.js"></script>
+</body>
 </html>
