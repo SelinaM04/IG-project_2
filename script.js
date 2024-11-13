@@ -45,7 +45,7 @@ function displayAllLocations(data) {
     }
 
     const markers = L.markerClusterGroup(); 
-    const limitedData = data.features.slice(0, 500); 
+    const limitedData = data.features.slice(0, 600); 
 
     limitedData.forEach(feature => {
         const latlng = [parseFloat(feature.properties.latitude), parseFloat(feature.properties.longitude)];
@@ -58,6 +58,7 @@ function displayAllLocations(data) {
                     <b>Address:</b> ${feature.properties.location}<br>
                     <b>Hosted By:</b> ${feature.properties.hosted_by}<br>
                     <b>Operation Day:</b> ${feature.properties.operation_day_hours}<br>
+                    <b>Notes:</b> ${feature.properties.notes}<br>
                 `;
             });
             markers.addLayer(marker);
@@ -89,7 +90,7 @@ function displayLocations(data) {
     }).addTo(map);
 }
 
-let allLocations; // Declare globally
+let allLocations; 
 fetch('data.geojson')
     .then(response => response.json())
     .then(data => {
@@ -98,23 +99,3 @@ fetch('data.geojson')
         displayAllLocations(allLocations);
     })
     .catch(error => console.error('Error loading the GeoJSON file:', error));
-
-// Use postMessage API to communicate with the iframe
-window.onload = function() {
-    var iframe = document.getElementById('datawrapper-chart-nQjSO');
-
-    // Check if the iframe exists
-    if (iframe) {
-        // Listen for messages from the iframe
-        window.addEventListener("message", function(event) {
-            // Replace with the actual origin of the iframe
-            if (event.origin === "https://datawrapper.dwcdn.net/nQjSO/5/") {
-                console.log("Message from iframe:", event.data);
-                // Handle the message received from the iframe
-            }
-        }, false);
-        
-        // Example of sending a message to the iframe (if needed)
-        iframe.contentWindow.postMessage("Hello from parent!", "https://datawrapper.dwcdn.net/nQjSO/5/");
-    }
-};
